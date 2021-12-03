@@ -20,10 +20,10 @@ var totalIncreases = 0;
 // start from index 1 instead of 0 so we have something to compare against
 // Array.slice is end-exclusive, so we have to go 1 beyond array length
 for (var i = 3; i < depths.length; i++) {
-  const prevTripleSum = sum(depths.slice(i - 3, i));
-  const currTripleSum = sum(depths.slice(i - 2, i + 1));
+  const prevTriple = depths.slice(i - 3, i);
+  const currTriple = depths.slice(i - 2, i + 1);
 
-  if (prevTripleSum < currTripleSum) {
+  if (sum(prevTriple) < sum(currTriple)) {
     totalIncreases++;
   }
 }
